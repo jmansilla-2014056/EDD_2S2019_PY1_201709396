@@ -108,10 +108,8 @@ void GenerarMatrizes::constriurMatriz(vector<string> order_Rut, const string& pa
         }
 
         filas.clear();
+        listamatrix.push_back(matris);
 
-        if (i != 0) {
-            listamatrix.push_back(matris);
-        }
     }
 
     vector<string> u{explode(path,'\\')};

@@ -11,6 +11,8 @@ using namespace std;
 
 bool bandera=false;
 char tecla;
+int filtro=0;
+int reportes=0;
 
 void Menu::menu() {
     do{
@@ -22,7 +24,7 @@ void Menu::menu() {
         cout << "\t2 Seleccionar imagen" << endl;
         cout << "\t3 Aplicar filtro general" << endl;
         cout << "\t4 Aplicar filtro a una capa" << endl;
-
+        cout << "\t5 Reportes" << endl;
         cout << "\t4 Salir" << endl << endl;
 
         cin >> tecla;
@@ -45,18 +47,27 @@ void Menu::menu() {
             case '3':
                 system("clear");
                 cout << "0. Aplicar filtro normal  \n";
-                cout << "0. Aplicar filtro normal  \n";
-                pf->generarImagen(7);
+                cin >> filtro;
+                if(filtro==0){
+                    pf->generarImagenNormal();
+                }
                 break;
             case '4':
                 system("clear");
                 cout << "Aplicar filtro a una capa\n";
             case '5':
+                cout << "0. Matris dispera (Capas normales)  \n";
+                cout << "1. Matris dispera (Capas con filtro)  \n";
+                cin >> reportes;
+                if(reportes==0){
+                    pf->Reportar_Normal();
+                }
+                //exit(1);
+                break;
+            case '6':
                 system("clear");
                 cout << "Salir \n";
                 bandera=true;
-                //exit(1);
-                break;
 
             default:
                 system("clear");

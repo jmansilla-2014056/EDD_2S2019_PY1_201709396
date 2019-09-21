@@ -16,6 +16,8 @@ using namespace std;
 vector<string> temp;
 vector<vector<Matris*>> capas;
 int seleccion;
+int base;
+string nombreCapa;
 
 string ExePath() {
     char buffer[MAX_PATH];
@@ -32,18 +34,22 @@ void PrepararFiltros::pedirImgen()  {
     }
     cout << "Seleccine una imagen" << endl;
    // generarImagen(2);
+   base = capas.size();
     cin >> seleccion;
 
 }
 
-void PrepararFiltros::generarImagenNormal(int x) {
+void PrepararFiltros::generarImagenNegative() {
     regex verificar("\\d{1}*,\\d{1}*,\\d{1}*");
     string gg;
     cout << to_string(seleccion) << endl;
     cout << temp[seleccion] << endl;
     ofstream css, html;
     int contador = 0;
-    for(auto &item : capas[seleccion]) {
+    vector<vector<Matris *>> flotante;
+    flotante = capas;
+    for (auto &item : flotante[seleccion]) {
+        cout << item->getName() << endl;
         Matris* copiaMatris = new Matris();
         cout << item->getName() << endl;
         if (contador == 0) {
@@ -76,6 +82,7 @@ void PrepararFiltros::generarImagenNormal(int x) {
                   "height:30px;\n"
                   "}" << endl;
             contador++;
+            continue;
         }
 
         NodoMatris* aux = item->root;
@@ -101,12 +108,13 @@ void PrepararFiltros::generarImagenNormal(int x) {
             aux = aux->abajo;
         }
         auto* report = new Report();
-    //    copiaMatris->SetName(item->getName());
+        copiaMatris->SetName(item->getName()+"_Negative");
+        copiaMatris->graficar();
+        capas[seleccion].push_back(copiaMatris);
     //    report->generar_capa(copiaMatris->root);
-
-     //   Reportar(copiaMatris,7);
-     //   copiaMatris->graficar("x");
-     item->graficar("_Normal");
+    //    Reportar(copiaMatris,7);
+    //    copiaMatris->graficar("x");
+    //    item->graficar("_Normal");
     }
     html << "</div>\n"
             "</body>\n"
@@ -119,91 +127,22 @@ void PrepararFiltros::generarImagenNormal(int x) {
     ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
 }
 
-void PrepararFiltros::verMatrises() {
-    for(auto &item : capas[seleccion]) {
-        cout << "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&" << endl;
-        item->rrecorreMatriz();
+
+
+
+void PrepararFiltros::Reportar_Normal() {
+    for (auto &item : capas[seleccion]) {
+        if(item->getName().find("_Normal") != std::string::npos ){
+            cout << item->getName() << endl;
+        }
     }
-}
-
-
-void PrepararFiltros::Reportar(Matris* matris, int filter) {
-
-    regex verificar("\\d{1}*,\\d{1}*,\\d{1}*");
-    ofstream txt;
-    txt.open(matris->getName()+".txt");
-    txt << "digraph L {" << endl;
-    txt << "node [shape=box]" << endl;
-    txt << "   Mt[ label = \"Matrix\", width = 1.5, style = filled, fillcolor = firebrick1, group = 1 ];\n"
-           "\n"
-           "    /* empty nodes, needed to override graphiz' default node placement */\n"
-           "    e0[ shape = point, width = 0 ];\n"
-           "    e1[ shape = point, width = 0 ];" << endl;
-
-    //Agrupar filas base
-    int cuenta_filas = 0;
-    NodoMatris* aux = matris->root;
-    while (aux!= nullptr){
-         txt << " U"+ to_string(cuenta_filas) + "[label = \""+aux->dato+"\"    pos = \"5.3,3.5!\" width = 1.5 style = filled, fillcolor = bisque1, group = 1 ];" << endl;
-         aux = aux->abajo;
-         cuenta_filas++;
+    cout << "Escriba nombre de la capa" << endl;
+    cin >> nombreCapa;
+    for (auto &item : capas[seleccion]) {
+        if(item->getName() == nombreCapa ){
+            item->abrirGrafica();
+        }
     }
-
-    //Linkear filas base
-    int cuenta_links = 0;
-    NodoMatris* aux1 = matris->root;
-    while (aux1!= nullptr){
-        txt << " U"+ to_string(cuenta_links)+ "->U" + to_string(cuenta_links+1) << endl;
-        cuenta_links++;
-        cout<< aux1->x << endl;
-        cout<<aux1->y<< endl;
-        aux1 = aux1->abajo;
-
-    }
-
-    cout<<"Sali"<< endl;
-
-    //Agrupar columnas base
-    int cuenta_columnas = 0;
-    NodoMatris* aux2 = matris->root->abajo;
-    while (aux2!= nullptr){
-        txt << " A"+ to_string(cuenta_columnas) + "[label = \""+aux->dato+"\"    pos = \"5.3,3.5!\" width = 1.5 style = filled, fillcolor = bisque1, group ="+ to_string(cuenta_columnas +2) +"];" << endl;
-        aux2 = aux2->siguiente;
-        cuenta_columnas++;
-    }
-
-    //Linkear columnas base
-    int cuenta_enlases = 0;
-    NodoMatris* aux3 = matris->root;
-    while (aux3!= nullptr){
-        txt << " A"+ to_string(cuenta_enlases)+ "->A" + to_string(cuenta_enlases+1) << endl;
-        cuenta_enlases++;
-        aux3 = aux3->siguiente;
-    }
-
-    txt<<"Mt -> U0;\n"
-         "    Mt -> A0;" << endl;
-
-    //linealizar A o Mt
-    int cuenta_linear = 0;
-    NodoMatris* aux4 = matris->root;
-    txt << "{rank = same; Mt";
-    while (aux4!= nullptr){
-        txt << "; A" + to_string(cuenta_linear);
-        cuenta_linear++;
-        aux4 = aux4->siguiente;
-    }
-    txt << ";}" << endl;
-
-    //Recorrer el resto
-    NodoMatris* aux5 = matris->root;
-
-
-    //int cuenta_columnas = 0;
-
-
-    txt << "}" << endl;
-    txt.close();
 }
 
 

@@ -15,7 +15,16 @@
 #include <cstring>
 #include "NodoMatris.h"
 #include "Matris.h"
-
+#include "Report.h"
+#include "NodoMatris.h"
+#include "PrepararFiltros.h"
+#include "GenerarMatrizes.h"
+#include "NodoMatris.h"
+#include "Matris.h"
+#include <string>
+#include <vector>
+#include <regex>
+#include <windows.h>
 using namespace std;
 
 NodoMatris* Matris::buscar_fila(int y) {
@@ -253,13 +262,14 @@ void Matris::graficarF() {
     }
 }
 
-void Matris::AbrirGrafica(string nombre) {
-
+void Matris::abrirGrafica() {
+    string title = this->getName()  + ".jpg";
+    ShellExecute(NULL, "open", title.c_str(), NULL, NULL, SW_SHOWNORMAL);
 }
 
-void Matris::graficar(string nombre) {
+void Matris::graficar() {
     ofstream grafica;
-    grafica.open(this->getName() +nombre+ ".dot", ios::out);
+    grafica.open(this->getName() + ".dot", ios::out);
     if (!grafica.fail()) {
         grafica << "digraph {" << endl << "node [shape = rectangle, height=0.5, width=1.2];" << endl << "graph [nodesep = 1];" << endl << "rankdir=TB;" << endl;
         NodoMatris *tempA = this->root;
@@ -397,10 +407,10 @@ void Matris::graficar(string nombre) {
 
         grafica.close();
 
-        string creacion = "dot -Tjpg " + this->getName() +nombre+ ".dot -o " + this->getName()+nombre + ".jpg";
+        string creacion = "dot -Tjpg " + this->getName() + ".dot -o " + this->getName() + ".jpg";
         system(creacion.c_str());
 
-        creacion = this->getName()+nombre + ".jpg";
+        creacion = this->getName() + ".jpg";
         system(creacion.c_str());
 
     }
