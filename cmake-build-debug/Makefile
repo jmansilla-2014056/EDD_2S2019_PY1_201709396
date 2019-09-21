@@ -339,6 +339,33 @@ PrepararFiltros.cpp.s:
 	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/PrepararFiltros.cpp.s
 .PHONY : PrepararFiltros.cpp.s
 
+Report.o: Report.cpp.o
+
+.PHONY : Report.o
+
+# target to build an object file
+Report.cpp.o:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Report.cpp.o
+.PHONY : Report.cpp.o
+
+Report.i: Report.cpp.i
+
+.PHONY : Report.i
+
+# target to preprocess a source file
+Report.cpp.i:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Report.cpp.i
+.PHONY : Report.cpp.i
+
+Report.s: Report.cpp.s
+
+.PHONY : Report.s
+
+# target to generate assembly for a file
+Report.cpp.s:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Report.cpp.s
+.PHONY : Report.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -399,6 +426,9 @@ help:
 	@echo "... PrepararFiltros.o"
 	@echo "... PrepararFiltros.i"
 	@echo "... PrepararFiltros.s"
+	@echo "... Report.o"
+	@echo "... Report.i"
+	@echo "... Report.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

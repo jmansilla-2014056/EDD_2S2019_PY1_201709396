@@ -18,8 +18,13 @@ using namespace std;
     class PrepararFiltros: GenerarMatrizes{
     public:
         void pedirImgen();
-        void generarImagen(int x);
+        void generarImagenNormal(int x);
         void verMatrises();
+        void Reportar(Matris* matris, int filter);
+
+        void generar_Reporte(Matris *tmp);
+
+        void generar_Reporte(NodoMatris *tmp);
     };
 
 

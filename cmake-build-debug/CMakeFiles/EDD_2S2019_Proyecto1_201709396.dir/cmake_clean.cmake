@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/PrepararArchivos.cpp.o"
   "CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/GenerarMatrizes.cpp.o"
   "CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/PrepararFiltros.cpp.o"
+  "CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Report.cpp.o"
   "EDD_2S2019_Proyecto1_201709396.pdb"
   "EDD_2S2019_Proyecto1_201709396.exe"
   "libEDD_2S2019_Proyecto1_201709396.dll.a"

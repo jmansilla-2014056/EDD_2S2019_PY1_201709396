@@ -44,7 +44,8 @@ void Menu::menu() {
                 break;
             case '3':
                 system("clear");
-                cout << "Aplicar filtro general\n";
+                cout << "0. Aplicar filtro normal  \n";
+                cout << "0. Aplicar filtro normal  \n";
                 pf->generarImagen(7);
                 break;
             case '4':

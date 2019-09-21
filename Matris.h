@@ -48,8 +48,12 @@ public:
     int image_width = 0;
     int pixel_height = 0;
     int image_height = 0;
+    void graficarF();
+    void graficar(string nombre);
 private:
     string name;
+
+    void AbrirGrafica(string nombre);
 };
 
 #endif /* MATRIs_H */

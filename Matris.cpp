@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Matris.cpp
  * Author: User
- * 
+ *
  * Created on 10 de septiembre de 2019, 08:25 AM
  */
 
@@ -204,7 +204,208 @@ string Matris::getName() {
 }
 
 
+void Matris::graficarF() {
+    ofstream grafica;
+    NodoMatris* aux = this->root;
 
+    grafica.open(this->getName() + ".dot", ios::out);
+
+    if (!grafica.fail()) {
+        grafica << "digraph {" << endl << "node [shape = rectangle, height=0.5, width=1.2];" << endl
+                << "graph [nodesep = 1];" << endl << "rankdir=TB;" << endl;
+
+        NodoMatris *tempA = this->root->abajo;
+        NodoMatris *temp = this->root;
+        int pos = 1;
+
+        if (tempA != nullptr) {
+            temp = tempA->siguiente;
+        }
+
+        while (tempA != nullptr) {
+            if (temp != nullptr) {
+                grafica << "\"" << pos << "\"[label=\"(" << temp->x << "," << temp->y << ")" << temp->dato << "\"];"
+                        << endl;
+                if (pos != 1) {
+                    int anterior = pos - 1;
+                    grafica << "\"" << anterior << "\"->\"" << pos << "\";" << endl;
+                }
+                pos++;
+                temp = temp->siguiente;
+            } else {
+                tempA = tempA->abajo;
+                if (tempA != nullptr) {
+                    temp = tempA->siguiente;
+                }
+            }
+        }
+
+        grafica << "}";
+
+        grafica.close();
+
+        string creacion = "dot -Tjpg " + this->getName() + ".dot -o " + this->getName() + ".jpg";
+        system(creacion.c_str());
+
+        creacion = this->getName() + ".jpg";
+        system(creacion.c_str());
+
+    }
+}
+
+void Matris::AbrirGrafica(string nombre) {
+
+}
+
+void Matris::graficar(string nombre) {
+    ofstream grafica;
+    grafica.open(this->getName() +nombre+ ".dot", ios::out);
+    if (!grafica.fail()) {
+        grafica << "digraph {" << endl << "node [shape = rectangle, height=0.5, width=1.2];" << endl << "graph [nodesep = 1];" << endl << "rankdir=TB;" << endl;
+        NodoMatris *tempA = this->root;
+        NodoMatris *temp = this->root;
+        bool primero = true;
+        while (tempA != nullptr){
+            if (tempA == this->root){
+                if (temp == this->root) {
+                    grafica << "\"" << temp->x << "-" << temp->y << "\"[label=\"" << temp->dato << "\"];" << endl;
+                    temp = temp->abajo;
+                }
+                else if(temp != nullptr){
+                    grafica << "\"" << temp->x << "-" << temp->y << "\"[label=\"" << temp->y << "\"];" << endl;
+                    temp = temp->abajo;
+                }
+                else{
+                    tempA = tempA->siguiente;
+                    temp = tempA;
+                }
+            }
+            else{
+                if (primero){
+                    grafica << "\"" << temp->x << "-" << temp->y << "\"[label=\"" << temp->x << "\"];" << endl;
+                    temp = temp->abajo;
+                    primero = false;
+                }
+                else if (temp != nullptr) {
+                    grafica << "\"" << temp->x << "-" << temp->y << "\"[label=\"" << temp->dato << "\"];" << endl;
+                    temp = temp->abajo;
+                }
+                else{
+                    tempA = tempA->siguiente;
+                    temp = tempA;
+                    primero = true;
+                }
+            }
+        }
+        tempA = this->root;
+        temp = tempA;
+
+        while (tempA != nullptr)
+        {
+            if (tempA == this->root){
+                if (temp == this->root) {
+                    grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->siguiente->x << "-" << temp->siguiente->y << "\"[dir=both];" << endl;
+                    grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->abajo->x << "-" << temp->abajo->y << "\"[dir=both];" << endl;
+                    temp = temp->abajo;
+                }
+                else {
+                    //imprime nodo derecho
+                    if (temp->siguiente != nullptr)
+                    {
+                        grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->siguiente->x << "-" << temp->siguiente->y << "\"[dir=both];" << endl;
+                    }
+                    if (temp->abajo != nullptr)
+                    {
+                        grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->abajo->x << "-" << temp->abajo->y << "\"[dir=both];" << endl;
+                        temp = temp->abajo;
+                    }
+                    else
+                    {
+                        tempA = tempA->siguiente;
+                        temp = tempA;
+                    }
+                }
+            }
+            else
+            {
+                if (tempA == temp) {
+                    if (temp->siguiente != nullptr){
+                        grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->siguiente->x << "-" << temp->siguiente->y << "\"[dir=both];" << endl;
+                    }
+                    if (temp->abajo != nullptr){
+                        grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->abajo->x << "-" << temp->abajo->y << "\"[dir=both];" << endl;
+                        temp = temp->abajo;
+                    }
+                    else
+                    {
+                        tempA = tempA->siguiente;
+                        temp = tempA;
+                    }
+                }
+                else
+                {
+                    if (temp->siguiente != nullptr){
+                        grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->siguiente->x << "-" << temp->siguiente->y << "\"[dir=both];" << endl;
+                    }
+                    if (temp->abajo != nullptr){
+                        grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->abajo->x << "-" << temp->abajo->y << "\"[dir=both];" << endl;
+                        temp = temp->abajo;
+                    }
+                    else{
+                        tempA = tempA->siguiente;
+                        temp = tempA;
+                    }
+                }
+            }
+        }
+        tempA = this->root;
+        temp = tempA;
+        while (tempA != nullptr)
+        {
+            if (tempA == this->root){
+                grafica << "{ rank=same; ";
+
+                grafica << "\"" << temp->x << "-" << temp->y << "\" ";
+                temp = temp->siguiente;
+
+                while (temp != nullptr)
+                {
+                    grafica << "\"" << temp->x << "-" << temp->y << "\" ";
+                    temp = temp->siguiente;
+                }
+
+                grafica << "};" << endl;
+                tempA = tempA->abajo;
+                temp = tempA;
+            }
+            else {
+                grafica << "{ rank=same; ";
+                grafica << "\"" << temp->x << "-" << temp->y << "\" ";
+                temp = temp->siguiente;
+                while (temp != nullptr)
+                {
+                    grafica << "\"" << temp->x << "-" << temp->y << "\" ";
+                    temp = temp->siguiente;
+                }
+                grafica << "};" << endl;
+                tempA = tempA->abajo;
+                temp = tempA;
+            }
+        }
+
+        grafica << "}";
+
+        grafica.close();
+
+        string creacion = "dot -Tjpg " + this->getName() +nombre+ ".dot -o " + this->getName()+nombre + ".jpg";
+        system(creacion.c_str());
+
+        creacion = this->getName()+nombre + ".jpg";
+        system(creacion.c_str());
+
+    }
+
+}
 
 
 

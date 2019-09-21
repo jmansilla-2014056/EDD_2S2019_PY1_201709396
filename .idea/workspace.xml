@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="EDD_2S2019_Proyecto1_201709396" targetName="EDD_2S2019_Proyecto1_201709396" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="88c71833-7aa3-4f3c-89e9-d29e5003563f" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1QfK8tzQEAmRHXZeiB07pMo0uJl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/EDD_2S2019_PY1_201709396-master" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\CLionProjects\EDD_2S2019_Proyecto1_201709396" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="EDD_2S2019_Proyecto1_201709396" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="EDD_2S2019_Proyecto1_201709396" TARGET_NAME="EDD_2S2019_Proyecto1_201709396" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="EDD_2S2019_Proyecto1_201709396" RUN_TARGET_NAME="EDD_2S2019_Proyecto1_201709396">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="88c71833-7aa3-4f3c-89e9-d29e5003563f" name="Default Changelist" comment="" />
+      <created>1568156054236</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568156054236</updated>
+      <workItem from="1568156057353" duration="22196000" />
+      <workItem from="1568224630988" duration="4071000" />
+      <workItem from="1568349333267" duration="5605000" />
+      <workItem from="1568402233405" duration="20776000" />
+      <workItem from="1568510776030" duration="14250000" />
+      <workItem from="1568566842244" duration="10883000" />
+      <workItem from="1568599407845" duration="8913000" />
+      <workItem from="1568655247316" duration="32682000" />
+      <workItem from="1568766040328" duration="7224000" />
+      <workItem from="1568773561002" duration="8327000" />
+      <workItem from="1568782395177" duration="11385000" />
+      <workItem from="1568820672485" duration="14162000" />
+      <workItem from="1568855328582" duration="23458000" />
+      <workItem from="1568899078174" duration="25695000" />
+      <workItem from="1568936128437" duration="31257000" />
+      <workItem from="1568990542080" duration="6694000" />
+      <workItem from="1569011953477" duration="36233000" />
+      <workItem from="1569080987072" duration="3838000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

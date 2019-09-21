@@ -40,6 +40,14 @@ CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/PrepararFiltros.cpp.o: ../Matris.h
 CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/PrepararFiltros.cpp.o: ../NodoMatris.h
 CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/PrepararFiltros.cpp.o: ../PrepararFiltros.cpp
 CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/PrepararFiltros.cpp.o: ../PrepararFiltros.h
+CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/PrepararFiltros.cpp.o: ../Report.h
+
+CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Report.cpp.o: ../GenerarMatrizes.h
+CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Report.cpp.o: ../Matris.h
+CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Report.cpp.o: ../NodoMatris.h
+CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Report.cpp.o: ../PrepararFiltros.h
+CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Report.cpp.o: ../Report.cpp
+CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Report.cpp.o: ../Report.h
 
 CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/main.cpp.o: ../GenerarMatrizes.h
 CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/main.cpp.o: ../Matris.h

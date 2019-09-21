@@ -34,7 +34,7 @@ vector<string> explode(const string& s, const char& c)
     return v;
 }
 
-std::string ReplaceAll(std::string str, const std::string& from, const std::string& to) {
+std::string GenerarMatrizes::ReplaceAll(std::string str, const std::string& from, const std::string& to) {
     size_t start_pos = 0;
     while((start_pos = str.find(from, start_pos)) != std::string::npos) {
         str.replace(start_pos, from.length(), to);
@@ -51,7 +51,7 @@ void GenerarMatrizes::constriurMatriz(vector<string> order_Rut, const string& pa
     vector<string> filas;
     cout << "Generando archivos de:" << endl;
 
-    for(size_t i=1; i<order_Rut.size();i++) {
+    for(size_t i=0; i<order_Rut.size();i++) {
         int correlativo = 1;
         string name = ReplaceAll(order_Rut[i], ".csv", "");
         auto *matris = new Matris();
@@ -61,7 +61,7 @@ void GenerarMatrizes::constriurMatriz(vector<string> order_Rut, const string& pa
         matris->image_height = image_height;
         string xd = order_Rut[i];
         string concatenar = path + xd;
-        matris->SetName(name);
+        matris->SetName(name.substr(0, name.size()-1));
         cout << xd << endl;
         std::ios_base::iostate exceptionMask = files.exceptions() | std::ios::failbit;
         files.exceptions(exceptionMask);
@@ -102,16 +102,13 @@ void GenerarMatrizes::constriurMatriz(vector<string> order_Rut, const string& pa
                 matris->insertar_elementos(x, y, ReplaceAll(color,"-",","), correlativo);
 
                 correlativo++;
-                cout << "X " + to_string(x) << endl;
-                cout << "Y" + to_string(y) << endl;
-                cout << "dato insertado" + color << endl;
+
             }
 
         }
 
         filas.clear();
-        cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + matris->getName() << endl;
-        matris->SetName(matris->getName());
+
         if (i != 0) {
             listamatrix.push_back(matris);
         }
