@@ -33,6 +33,8 @@ using namespace std;
         void generarImagenDOBLE();
 
         void Reportar_Lineal(int tipo);
+
+        void ReportarCircular();
     };
 
 

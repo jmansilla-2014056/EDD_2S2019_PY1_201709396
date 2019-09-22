@@ -75,6 +75,7 @@ void Menu::menu() {
                 cout << "1. Matris dispera (Capas con filtro)  \n";
                 cout << "2. Linealizar filas de una capa  \n";
                 cout << "3. Linealizar columna de una capa  \n";
+                cout << "4. Lista Circular de filtros aplicados  \n";
                 cin >> reportes;
                 if(reportes==0){
                     pf->Reportar_Normal();
@@ -84,6 +85,8 @@ void Menu::menu() {
                     pf->Reportar_Lineal(1);
                 }else if(reportes==3){
                     pf->Reportar_Lineal(2);
+                }else if(reportes==4){
+                    pf->ReportarCircular();
                 }
                 //exit(1);
                 break;

@@ -1,0 +1,20 @@
+digraph {
+node [shape = rectangle, height=0.5, width=1.2];
+graph [nodesep = 1];
+rankdir=TB;
+Cuerpo_Negativo0->Pico_Patas_Negativo0
+Pico_Patas_Negativo0->Cuerpo_Negativo0
+Pico_Patas_Negativo1->Contorno_Negativo1
+Contorno_Negativo1->Pico_Patas_Negativo1
+Contorno_Negativo2->Cuerpo_XMIRROR2
+Cuerpo_XMIRROR2->Contorno_Negativo2
+Cuerpo_XMIRROR3->Pico_Patas_XMIRROR3
+Pico_Patas_XMIRROR3->Cuerpo_XMIRROR3
+Pico_Patas_XMIRROR4->Contorno_XMIRROR4
+Contorno_XMIRROR4->Pico_Patas_XMIRROR4
+Contorno_XMIRROR5->Cuerpo_Gray5
+Cuerpo_Gray5->Contorno_XMIRROR5
+Cuerpo_Gray6->Pico_Patas_Gray6
+Pico_Patas_Gray6->Cuerpo_Gray6
+Pico_Patas_Gray7->Contorno_Gray7
+Contorno_Gray7->Pico_Patas_Gray7

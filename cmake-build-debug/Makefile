@@ -204,6 +204,33 @@ GenerarMatrizes.cpp.s:
 	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/GenerarMatrizes.cpp.s
 .PHONY : GenerarMatrizes.cpp.s
 
+ListaCircular.o: ListaCircular.cpp.o
+
+.PHONY : ListaCircular.o
+
+# target to build an object file
+ListaCircular.cpp.o:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/ListaCircular.cpp.o
+.PHONY : ListaCircular.cpp.o
+
+ListaCircular.i: ListaCircular.cpp.i
+
+.PHONY : ListaCircular.i
+
+# target to preprocess a source file
+ListaCircular.cpp.i:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/ListaCircular.cpp.i
+.PHONY : ListaCircular.cpp.i
+
+ListaCircular.s: ListaCircular.cpp.s
+
+.PHONY : ListaCircular.s
+
+# target to generate assembly for a file
+ListaCircular.cpp.s:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/ListaCircular.cpp.s
+.PHONY : ListaCircular.cpp.s
+
 Matris.o: Matris.cpp.o
 
 .PHONY : Matris.o
@@ -257,6 +284,33 @@ Menu.s: Menu.cpp.s
 Menu.cpp.s:
 	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Menu.cpp.s
 .PHONY : Menu.cpp.s
+
+NodoAbb.o: NodoAbb.cpp.o
+
+.PHONY : NodoAbb.o
+
+# target to build an object file
+NodoAbb.cpp.o:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/NodoAbb.cpp.o
+.PHONY : NodoAbb.cpp.o
+
+NodoAbb.i: NodoAbb.cpp.i
+
+.PHONY : NodoAbb.i
+
+# target to preprocess a source file
+NodoAbb.cpp.i:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/NodoAbb.cpp.i
+.PHONY : NodoAbb.cpp.i
+
+NodoAbb.s: NodoAbb.cpp.s
+
+.PHONY : NodoAbb.s
+
+# target to generate assembly for a file
+NodoAbb.cpp.s:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/NodoAbb.cpp.s
+.PHONY : NodoAbb.cpp.s
 
 NodoMatris.o: NodoMatris.cpp.o
 
@@ -411,12 +465,18 @@ help:
 	@echo "... GenerarMatrizes.o"
 	@echo "... GenerarMatrizes.i"
 	@echo "... GenerarMatrizes.s"
+	@echo "... ListaCircular.o"
+	@echo "... ListaCircular.i"
+	@echo "... ListaCircular.s"
 	@echo "... Matris.o"
 	@echo "... Matris.i"
 	@echo "... Matris.s"
 	@echo "... Menu.o"
 	@echo "... Menu.i"
 	@echo "... Menu.s"
+	@echo "... NodoAbb.o"
+	@echo "... NodoAbb.i"
+	@echo "... NodoAbb.s"
 	@echo "... NodoMatris.o"
 	@echo "... NodoMatris.i"
 	@echo "... NodoMatris.s"

@@ -643,3 +643,31 @@ void PrepararFiltros::Reportar_Lineal(int tipo) {
 
 }
 
+void PrepararFiltros::ReportarCircular() {
+    ofstream grafica;
+
+    grafica.open(temp[seleccion]+"Circular" + ".dot", ios::out);
+
+    if (!grafica.fail()) {
+        grafica << "digraph {" << endl << "node [shape = rectangle, height=0.5, width=1.2];" << endl << "graph [nodesep = 1];" << endl << "rankdir=TB;" << endl;
+
+        int dl=0;
+        for (auto &item2: capas[seleccion][0]->CAP) {
+                if(capas[seleccion][0]->CAP[dl+1]!=nullptr){
+                    grafica << item2->getName()+to_string(dl) +"->" + capas[seleccion][0]->CAP[dl+1]->getName() + to_string(dl) << endl;
+                    grafica << capas[seleccion][0]->CAP[dl+1]->getName() + to_string(dl)  + "->" + item2->getName()+to_string(dl) << endl;
+                    dl++;
+                }
+        }
+
+
+        grafica << "}";
+        grafica.close();
+        string creacion = "dot -Tjpg " + temp[seleccion]+"Circular" + ""+ "" + ".dot -o " + temp[seleccion]+"Circular" +""+ ".jpg";
+        system(creacion.c_str());
+        creacion = temp[seleccion]+"Circular"+ "" + ".jpg";
+        system(creacion.c_str());
+
+
+    }
+}

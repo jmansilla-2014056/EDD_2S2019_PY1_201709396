@@ -98,6 +98,12 @@
 		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/GenerarMatrizes.h">
 			<Option target="EDD_2S2019_Proyecto1_201709396"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/ListaCircular.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/ListaCircular.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Matris.cpp">
 			<Option target="EDD_2S2019_Proyecto1_201709396"/>
 		</Unit>
@@ -108,6 +114,12 @@
 			<Option target="EDD_2S2019_Proyecto1_201709396"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Menu.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoAbb.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoAbb.h">
 			<Option target="EDD_2S2019_Proyecto1_201709396"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoMatris.cpp">
