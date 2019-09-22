@@ -219,7 +219,7 @@ void Matris::graficarF() {
     ofstream grafica;
     NodoMatris* aux = this->root;
 
-    grafica.open(this->getName() +"LF"+ ".dot", ios::out);
+    grafica.open(this->getName() +""+ ".dot", ios::out);
 
     if (!grafica.fail()) {
         grafica << "digraph {" << endl << "node [shape = rectangle, height=0.5, width=1.2];" << endl
@@ -255,12 +255,12 @@ void Matris::graficarF() {
 
         grafica.close();
 
-        string creacion = "dot -Tjpg " + this->getName() + "_LF"+ "" + ".dot -o " + this->getName() + ".jpg";
+        string creacion = "dot -Tjpg " + this->getName() + ""+ "" + ".dot -o " + this->getName()+"" + ".jpg";
         system(creacion.c_str());
-        creacion = this->getName() + "_LF" + ".jpg";
+        creacion = this->getName() + "" + ".jpg";
         system(creacion.c_str());
         Matris* temporal = this;
-        temporal->SetName(temporal->getName()+"LF");
+        temporal->SetName(temporal->getName()+"");
         temporal->abrirGrafica();
 
     }
@@ -275,7 +275,7 @@ void Matris::abrirGrafica() {
 void Matris::graficarC() {
     ofstream grafica;
 
-    grafica.open(this->getName()+"_LC" + ".dot", ios::out);
+    grafica.open(this->getName()+"" + ".dot", ios::out);
 
     if (!grafica.fail()) {
         grafica << "digraph {" << endl << "node [shape = rectangle, height=0.5, width=1.2];" << endl << "graph [nodesep = 1];" << endl << "rankdir=TB;" << endl;
@@ -311,12 +311,12 @@ void Matris::graficarC() {
         }
         grafica << "}";
         grafica.close();
-        string creacion = "dot -Tjpg " + this->getName() + "_LC"+ "" + ".dot -o " + this->getName() + ".jpg";
+        string creacion = "dot -Tjpg " + this->getName() + ""+ "" + ".dot -o " + this->getName() +""+ ".jpg";
         system(creacion.c_str());
-        creacion = this->getName() + "_LC" + ".jpg";
+        creacion = this->getName() + "" + ".jpg";
         system(creacion.c_str());
         Matris* temporal = this;
-        temporal->SetName(temporal->getName()+"LC");
+        temporal->SetName(temporal->getName()+"");
         temporal->abrirGrafica();
 
     }

@@ -27,6 +27,12 @@ using namespace std;
         void generarImagenGray();
 
         void generarImagenXMIRROR();
+
+        void generarImagenYMIRROR();
+
+        void generarImagenDOBLE();
+
+        void Reportar_Lineal(int tipo);
     };
 
 

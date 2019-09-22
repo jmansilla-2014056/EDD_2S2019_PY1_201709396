@@ -50,6 +50,8 @@ void Menu::menu() {
                 cout << "1. Aplicar filtro negativo  \n";
                 cout << "2. Aplicar filtro escala de grises  \n";
                 cout << "3. Aplicar filtro XMIRROR  \n";
+                cout << "4. Aplicar filtro YMIRROR  \n";
+                cout << "5. Aplicar filtro YX MIRROR  \n";
                 cin >> filtro;
                 if(filtro==0){
                     pf->generarImagenNormal();
@@ -59,6 +61,10 @@ void Menu::menu() {
                     pf->generarImagenGray();
                 }else if(filtro==3){
                     pf->generarImagenXMIRROR();
+                }else if(filtro==4){
+                    pf->generarImagenYMIRROR();
+                }else if(filtro==5){
+                    pf->generarImagenDOBLE();
                 }
                 break;
             case '4':
@@ -67,15 +73,18 @@ void Menu::menu() {
             case '5':
                 cout << "0. Matris dispera (Capas normales)  \n";
                 cout << "1. Matris dispera (Capas con filtro)  \n";
+                cout << "2. Linealizar filas de una capa  \n";
+                cout << "3. Linealizar columna de una capa  \n";
                 cin >> reportes;
                 if(reportes==0){
                     pf->Reportar_Normal();
                 }else if(reportes==1){
                     pf->Reportar_Filter();
                 }else if(reportes==2){
-
+                    pf->Reportar_Lineal(1);
+                }else if(reportes==3){
+                    pf->Reportar_Lineal(2);
                 }
-
                 //exit(1);
                 break;
             case '6':

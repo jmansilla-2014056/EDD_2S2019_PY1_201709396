@@ -385,7 +385,7 @@ void PrepararFiltros::generarImagenXMIRROR() {
                     css << ".pixel:nth-child(" + to_string(c) + "){\n"
                                                                 "background: rgb(" + aux1->dato + ");\n"
                                                                                                    "}" << endl;
-                    copiaMatris->insertar_elementos(item->max_columna- (aux1->x) ,aux1->y,aux1->dato,c);
+                    copiaMatris->insertar_elementos((item->max_columna)-(aux1->x) ,aux1->y,aux1->dato,c);
                 }
                 html << "<div class=\"pixel\">\n"
                         "</div>" << endl;
@@ -410,7 +410,7 @@ void PrepararFiltros::generarImagenXMIRROR() {
 }
 
 
-/////////////////////////////////XMIRROR
+/////////////////////////////////YMIRROR
 
 void PrepararFiltros::generarImagenYMIRROR() {
     regex verificar("\\d{1}*,\\d{1}*,\\d{1}*");
@@ -471,7 +471,7 @@ void PrepararFiltros::generarImagenYMIRROR() {
                     css << ".pixel:nth-child(" + to_string(c) + "){\n"
                                                                 "background: rgb(" + aux1->dato + ");\n"
                                                                                                   "}" << endl;
-                    copiaMatris->insertar_elementos(aux1->x , item->max_fila- aux1->y,aux1->dato,c);
+                    copiaMatris->insertar_elementos(aux1->x , (item->max_fila- aux1->y) ,aux1->dato,c);
                 }
                 html << "<div class=\"pixel\">\n"
                         "</div>" << endl;
@@ -481,6 +481,89 @@ void PrepararFiltros::generarImagenYMIRROR() {
             aux = aux->abajo;
         }
         copiaMatris->SetName(item->getName()+"_YMIRROR");
+        copiaMatris->graficar();
+        capas[seleccion][0]->CAP.push_back(copiaMatris);
+    }
+    html << "</div>\n"
+            "</body>\n"
+            "</html>" << endl;
+    css.close();
+    html.close();
+    string abrir = ExePath() + gg;
+    abrir = ReplaceAll(abrir,"cmake-build-debug","");
+    cout << abrir << endl;
+    ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
+}
+
+void PrepararFiltros::generarImagenDOBLE() {
+    regex verificar("\\d{1}*,\\d{1}*,\\d{1}*");
+    string gg;
+    cout << to_string(seleccion) << endl;
+    cout << temp[seleccion] << endl;
+    ofstream css, html;
+    int contador = 0;
+    vector<vector<Matris *>> flotante;
+    flotante = capas;
+    for (auto &item : flotante[seleccion]) {
+        cout << item->getName() << endl;
+        Matris* copiaMatris = new Matris();
+        cout << item->getName() << endl;
+        if (contador == 0) {
+            string nombre_archivo = temp[seleccion] + ".css";
+            string nombre_archivoH = temp[seleccion] + ".html";
+            gg = nombre_archivoH;
+            html.open(temp[seleccion] + ".html");
+            css.open(nombre_archivo);
+
+            html << "<!DOCTYPE html>" << endl;
+            html << "<head>" << endl;
+            html << R"(<link rel="stylesheet" href=")"+nombre_archivo+"\">"<< endl;
+            html << "</head>\n"
+                    "<body> <div class=\"canvas\">" << endl;
+            css << "body{\n"
+                   "background: #333333;\n"
+                   "height: 100vh;\n"
+                   "display:flex;\n"
+                   "justify-content: center;\n"
+                   "align-items: center;\n"
+                   "}" << endl;
+            css <<".canvas{\n"
+
+                  "transform: scale(-1, -1); width:"+to_string(item->image_width)+"px;\n"
+                                                                                 "height:"+to_string(item->image_height)+"px;\n"
+                                                                                                                         "\n"
+                                                                                                                         "}\n"
+                                                                                                                         ".pixel{\n"
+                                                                                                                         "float: left;\n"
+                                                                                                                         "width:"+to_string(item->pixel_widt)+"px;\n"
+                                                                                                                                                              "height:"+to_string(item->pixel_height)+"px;\n""}" << endl;
+            contador++;
+            continue;
+        }
+
+        NodoMatris* aux = item->root;
+        int c = 1;
+        while (aux!= nullptr){
+            NodoMatris* aux1 = aux;
+            while (aux1!= nullptr){
+                if(aux1->y==-1 or aux1->x==-1){
+                    aux1 = aux1->siguiente;
+                    continue;
+                }
+                if(regex_match(aux1->dato,verificar)) {
+                    css << ".pixel:nth-child(" + to_string(c) + "){\n"
+                                                                "background: rgb(" + aux1->dato + ");\n"
+                                                                                                  "}" << endl;
+                    copiaMatris->insertar_elementos((item->max_fila - aux1->x) , (item->max_fila- aux1->y) ,aux1->dato,c);
+                }
+                html << "<div class=\"pixel\">\n"
+                        "</div>" << endl;
+                aux1 = aux1->siguiente;
+                c++;
+            }
+            aux = aux->abajo;
+        }
+        copiaMatris->SetName(item->getName()+"_DOUBLE");
         copiaMatris->graficar();
         capas[seleccion][0]->CAP.push_back(copiaMatris);
     }
@@ -537,4 +620,26 @@ void PrepararFiltros::Reportar_Filter() {
 
 }
 
+
+void PrepararFiltros::Reportar_Lineal(int tipo) {
+
+    for (auto &item1: capas[seleccion][0]->CAP) {
+            cout << item1->getName() << endl;
+    }
+
+    cout << "Escriba el nombre" << endl;
+    cin >> nombreFiltro;
+
+    for (auto &item2: capas[seleccion][0]->CAP) {
+        if(item2->getName() == nombreFiltro){
+            if(tipo==1){
+                item2->graficarF();
+            }else{
+                item2->graficarC();
+            }
+
+        }
+    }
+
+}
 

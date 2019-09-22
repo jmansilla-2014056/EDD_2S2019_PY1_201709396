@@ -49,16 +49,15 @@ public:
     int image_width = 0;
     int pixel_height = 0;
     int image_height = 0;
-    int max_fila=0;
-    int max_columna=0;
+    int max_fila=1;
+    int max_columna=1;
     void graficarF();
     void graficar();
     void abrirGrafica();
+    void graficarC();
 private:
     string name;
 
-
-    void graficarC();
 };
 
 #endif /* MATRIs_H */
