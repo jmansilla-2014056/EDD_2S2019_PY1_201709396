@@ -50,6 +50,7 @@ NodoMatris* Matris::buscar_columna(int x) {
 }
 
 NodoMatris* Matris::insertar_ordenado_columna(NodoMatris *nuevo, NodoMatris *cabesa_col) {
+    this->max_columna++;
     NodoMatris* temp = cabesa_col;
     bool bandera = false;
     while(true){
@@ -86,6 +87,7 @@ NodoMatris* Matris::insertar_ordenado_columna(NodoMatris *nuevo, NodoMatris *cab
 }
 
 NodoMatris *Matris::insertar_ordenado_fila(NodoMatris *nuevo, NodoMatris *cabesa_fila) {
+    this->max_fila++;
     NodoMatris* temp = cabesa_fila;
     bool bandera = false;
     while(true){
@@ -217,7 +219,7 @@ void Matris::graficarF() {
     ofstream grafica;
     NodoMatris* aux = this->root;
 
-    grafica.open(this->getName() + ".dot", ios::out);
+    grafica.open(this->getName() +"LF"+ ".dot", ios::out);
 
     if (!grafica.fail()) {
         grafica << "digraph {" << endl << "node [shape = rectangle, height=0.5, width=1.2];" << endl
@@ -253,19 +255,74 @@ void Matris::graficarF() {
 
         grafica.close();
 
-        string creacion = "dot -Tjpg " + this->getName() + ".dot -o " + this->getName() + ".jpg";
+        string creacion = "dot -Tjpg " + this->getName() + "_LF"+ "" + ".dot -o " + this->getName() + ".jpg";
         system(creacion.c_str());
-
-        creacion = this->getName() + ".jpg";
+        creacion = this->getName() + "_LF" + ".jpg";
         system(creacion.c_str());
+        Matris* temporal = this;
+        temporal->SetName(temporal->getName()+"LF");
+        temporal->abrirGrafica();
 
     }
 }
 
+
 void Matris::abrirGrafica() {
     string title = this->getName()  + ".jpg";
-    ShellExecute(NULL, "open", title.c_str(), NULL, NULL, SW_SHOWNORMAL);
+    ShellExecute(nullptr, "open", title.c_str(), nullptr, nullptr, SW_SHOWNORMAL);
 }
+
+void Matris::graficarC() {
+    ofstream grafica;
+
+    grafica.open(this->getName()+"_LC" + ".dot", ios::out);
+
+    if (!grafica.fail()) {
+        grafica << "digraph {" << endl << "node [shape = rectangle, height=0.5, width=1.2];" << endl << "graph [nodesep = 1];" << endl << "rankdir=TB;" << endl;
+
+        NodoMatris *tempA = this->root->siguiente;
+        NodoMatris *temp = this->root;
+        bool primero = true;
+        int pos = 1;
+
+        if (tempA != nullptr)
+        {
+            temp = tempA->abajo;
+        }
+
+        while (tempA != nullptr)
+        {
+            if (temp != nullptr) {
+                grafica << "\"" << pos << "\"[label=\"(" << temp->x << "," << temp->y << ")"<< temp->dato << "\"];" << endl;
+                if (pos != 1)
+                {
+                    int anterior = pos - 1;
+                    grafica << "\"" << anterior << "\"->\"" << pos << "\";" << endl;
+                }
+                pos++;
+                temp = temp->abajo;
+            }
+            else{
+                tempA = tempA->siguiente;
+                if (tempA != nullptr){
+                    temp = tempA->abajo;
+                }
+            }
+        }
+        grafica << "}";
+        grafica.close();
+        string creacion = "dot -Tjpg " + this->getName() + "_LC"+ "" + ".dot -o " + this->getName() + ".jpg";
+        system(creacion.c_str());
+        creacion = this->getName() + "_LC" + ".jpg";
+        system(creacion.c_str());
+        Matris* temporal = this;
+        temporal->SetName(temporal->getName()+"LC");
+        temporal->abrirGrafica();
+
+    }
+}
+
+
 
 void Matris::graficar() {
     ofstream grafica;
@@ -416,6 +473,4 @@ void Matris::graficar() {
     }
 
 }
-
-
 

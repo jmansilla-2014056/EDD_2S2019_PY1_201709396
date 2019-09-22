@@ -26,6 +26,7 @@
 #include <string.h>
 #include <cstring>
 #include <utility>
+#include <vector>
 
 class Matris {
 public:
@@ -43,11 +44,13 @@ public:
     void SetName(string n);
     void rrecorreMatriz();
     string getName();
-
+    vector<Matris*> CAP;
     int pixel_widt = 0;
     int image_width = 0;
     int pixel_height = 0;
     int image_height = 0;
+    int max_fila=0;
+    int max_columna=0;
     void graficarF();
     void graficar();
     void abrirGrafica();
@@ -55,6 +58,7 @@ private:
     string name;
 
 
+    void graficarC();
 };
 
 #endif /* MATRIs_H */

@@ -21,6 +21,12 @@ using namespace std;
         void generarImagenNormal();
 
         void Reportar_Normal();
+        void Reportar_Filter();
+        void generarImagenNegative();
+
+        void generarImagenGray();
+
+        void generarImagenXMIRROR();
     };
 
 

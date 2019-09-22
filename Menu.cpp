@@ -47,9 +47,18 @@ void Menu::menu() {
             case '3':
                 system("clear");
                 cout << "0. Aplicar filtro normal  \n";
+                cout << "1. Aplicar filtro negativo  \n";
+                cout << "2. Aplicar filtro escala de grises  \n";
+                cout << "3. Aplicar filtro XMIRROR  \n";
                 cin >> filtro;
                 if(filtro==0){
                     pf->generarImagenNormal();
+                }else if(filtro==1){
+                    pf->generarImagenNegative();
+                }else if(filtro==2){
+                    pf->generarImagenGray();
+                }else if(filtro==3){
+                    pf->generarImagenXMIRROR();
                 }
                 break;
             case '4':
@@ -61,7 +70,12 @@ void Menu::menu() {
                 cin >> reportes;
                 if(reportes==0){
                     pf->Reportar_Normal();
+                }else if(reportes==1){
+                    pf->Reportar_Filter();
+                }else if(reportes==2){
+
                 }
+
                 //exit(1);
                 break;
             case '6':

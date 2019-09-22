@@ -19,7 +19,7 @@ ifstream files;
 GenerarMatrizes::GenerarMatrizes() {
 }
 
-vector<string> explode(const string& s, const char& c)
+vector<string> GenerarMatrizes:: explode(const string& s, const char& c)
 {
     string buff{""};
     vector<string> v;
@@ -96,6 +96,27 @@ void GenerarMatrizes::constriurMatriz(vector<string> order_Rut, const string& pa
             vector<string> v{explode(filas[y], ',')};
             for (size_t x = 0; x < v.size() ; x++) {
 
+                if(i==0){
+                    if(x==1 and y ==1){
+                        pixel_width = stoi(v[x]);
+                        matris->pixel_widt = pixel_width;
+                    }
+                    if(x==1 and y ==2){
+                        image_width = stoi(v[x]);
+                        matris->image_width = image_width;
+                    }
+                    if(x==1 and y ==3){
+                        pixel_height = stoi(v[x]);
+                        matris->pixel_height = pixel_height;
+                    }
+                    if(x==1 and y ==4){
+                        image_height = stoi(v[x]);
+                        matris->image_height = image_height;
+                    }
+                }
+
+                cout << "SUPER X" + to_string(x) << endl;
+                cout << "SUPER Y" + to_string(y) << endl;
 
                 cout << v[x] << endl;
                 string color = v[x];//  color = ReplaceAll(color,"\n","");

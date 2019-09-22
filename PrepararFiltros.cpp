@@ -17,7 +17,8 @@ vector<string> temp;
 vector<vector<Matris*>> capas;
 int seleccion;
 int base;
-string nombreCapa;
+int nombreCapa;
+string nombreFiltro;
 
 string ExePath() {
     char buffer[MAX_PATH];
@@ -38,6 +39,96 @@ void PrepararFiltros::pedirImgen()  {
     cin >> seleccion;
 
 }
+
+////////////////////////////////////////////////////////NORMAL
+
+void PrepararFiltros::generarImagenNormal() {
+    regex verificar("\\d{1}*,\\d{1}*,\\d{1}*");
+    string gg;
+    cout << to_string(seleccion) << endl;
+    cout << temp[seleccion] << endl;
+    ofstream css, html;
+    int contador = 0;
+    vector<vector<Matris *>> flotante;
+    flotante = capas;
+    for (auto &item : flotante[seleccion]) {
+        cout << item->getName() << endl;
+        Matris* copiaMatris = new Matris();
+        cout << item->getName() << endl;
+        if (contador == 0) {
+            string nombre_archivo = temp[seleccion] + ".css";
+            string nombre_archivoH = temp[seleccion] + ".html";
+            gg = nombre_archivoH;
+            html.open(temp[seleccion] + ".html");
+            css.open(nombre_archivo);
+
+            html << "<!DOCTYPE html>" << endl;
+            html << "<head>" << endl;
+            html << R"(<link rel="stylesheet" href=")"+nombre_archivo+"\">"<< endl;
+            html << "</head>\n"
+                    "<body> <div class=\"canvas\">" << endl;
+            css << "body{\n"
+                   "background: #333333;\n"
+                   "height: 100vh;\n"
+                   "display:flex;\n"
+                   "justify-content: center;\n"
+                   "align-items: center;\n"
+                   "}" << endl;
+            css <<".canvas{\n"
+                  "width:"+to_string(item->image_width)+"px;\n"
+                   "height:"+to_string(item->image_height)+"px;\n"
+                    "\n"
+                    "}\n"
+                    ".pixel{\n"
+                    "float: left;\n"
+                    "width:"+to_string(item->pixel_widt)+"px;\n"
+                                                         "height:"+to_string(item->pixel_height)+"px;\n"
+                                                                                                 "}" << endl;
+            contador++;
+            continue;
+        }
+
+        NodoMatris* aux = item->root;
+        int c = 1;
+        while (aux!= nullptr){
+            NodoMatris* aux1 = aux;
+            while (aux1!= nullptr){
+                if(aux1->y==-1 or aux1->x==-1){
+                    aux1 = aux1->siguiente;
+                    continue;
+                }
+                if(regex_match(aux1->dato,verificar)) {
+                    css << ".pixel:nth-child(" + to_string(c) + "){\n"
+                     "background: rgb(" + aux1->dato + ");\n"
+                     "}" << endl;
+                    copiaMatris->insertar_elementos(aux1->x ,aux1->y,aux1->dato,c);
+                }
+                html << "<div class=\"pixel\">\n"
+                        "</div>" << endl;
+                aux1 = aux1->siguiente;
+                c++;
+            }
+            aux = aux->abajo;
+        }
+
+        copiaMatris->SetName(item->getName()+"_Normal");
+        copiaMatris->graficar();
+
+        capas[seleccion][0]->CAP.push_back(copiaMatris);
+
+    }
+    html << "</div>\n"
+            "</body>\n"
+            "</html>" << endl;
+    css.close();
+    html.close();
+    string abrir = ExePath() + gg;
+    abrir = ReplaceAll(abrir,"cmake-build-debug","");
+    cout << abrir << endl;
+    ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
+}
+
+/////////////////////////////////NEGATIVE
 
 void PrepararFiltros::generarImagenNegative() {
     regex verificar("\\d{1}*,\\d{1}*,\\d{1}*");
@@ -72,14 +163,14 @@ void PrepararFiltros::generarImagenNegative() {
                    "align-items: center;\n"
                    "}" << endl;
             css <<".canvas{\n"
-                  "width:570px;\n"
-                  "height:510px;\n"
+                  "width:"+to_string(item->image_width)+"px;\n"
+                                             "height:"+to_string(item->image_height)+"px;\n"
                   "\n"
                   "}\n"
                   ".pixel{\n"
                   "float: left;\n"
-                  "width:30px;\n"
-                  "height:30px;\n"
+                  "width:"+to_string(item->pixel_widt)+"px;\n"
+                                                       "height:"+to_string(item->pixel_height)+"px;\n"
                   "}" << endl;
             contador++;
             continue;
@@ -94,11 +185,22 @@ void PrepararFiltros::generarImagenNegative() {
                     aux1 = aux1->siguiente;
                     continue;
                 }
-                if(aux1->dato != "x") {
+
+
+                if(regex_match(aux1->dato,verificar)) {
+
+                    string convertidor;
+                    vector<string> v{explode(aux1->dato, ',')};
+                    for(auto &&rgb : v){
+                        int color = 255-stoi(rgb);
+                        convertidor = convertidor + to_string(color) + ",";
+                    }
+                    convertidor = convertidor.substr(0, convertidor.size()-1);
                     css << ".pixel:nth-child(" + to_string(c) + "){\n"
-                     "background: rgb(" + aux1->dato + ");\n"
-                     "}" << endl;
-                    copiaMatris->insertar_elementos(aux1->x,aux1->y,aux1->dato,c);
+                                                                "background: rgb(" + convertidor + ");\n"
+                                                                                                  "}" << endl;
+
+                    copiaMatris->insertar_elementos(aux1->x ,aux1->y,convertidor,c);
                 }
                 html << "<div class=\"pixel\">\n"
                         "</div>" << endl;
@@ -107,14 +209,9 @@ void PrepararFiltros::generarImagenNegative() {
             }
             aux = aux->abajo;
         }
-        auto* report = new Report();
-        copiaMatris->SetName(item->getName()+"_Negative");
+        copiaMatris->SetName(item->getName()+"_Negativo");
         copiaMatris->graficar();
-        capas[seleccion].push_back(copiaMatris);
-    //    report->generar_capa(copiaMatris->root);
-    //    Reportar(copiaMatris,7);
-    //    copiaMatris->graficar("x");
-    //    item->graficar("_Normal");
+        capas[seleccion][0]->CAP.push_back(copiaMatris);
     }
     html << "</div>\n"
             "</body>\n"
@@ -128,21 +225,316 @@ void PrepararFiltros::generarImagenNegative() {
 }
 
 
+/////////////////////////////////ESCALA DE GRISES
+
+void PrepararFiltros::generarImagenGray() {
+    regex verificar("\\d{1}*,\\d{1}*,\\d{1}*");
+    string gg;
+    cout << to_string(seleccion) << endl;
+    cout << temp[seleccion] << endl;
+    ofstream css, html;
+    int contador = 0;
+    vector<vector<Matris *>> flotante;
+    flotante = capas;
+    for (auto &item : flotante[seleccion]) {
+        cout << item->getName() << endl;
+        Matris* copiaMatris = new Matris();
+        cout << item->getName() << endl;
+        if (contador == 0) {
+            string nombre_archivo = temp[seleccion] + ".css";
+            string nombre_archivoH = temp[seleccion] + ".html";
+            gg = nombre_archivoH;
+            html.open(temp[seleccion] + ".html");
+            css.open(nombre_archivo);
+
+            html << "<!DOCTYPE html>" << endl;
+            html << "<head>" << endl;
+            html << R"(<link rel="stylesheet" href=")"+nombre_archivo+"\">"<< endl;
+            html << "</head>\n"
+                    "<body> <div class=\"canvas\">" << endl;
+            css << "body{\n"
+                   "background: #333333;\n"
+                   "height: 100vh;\n"
+                   "display:flex;\n"
+                   "justify-content: center;\n"
+                   "align-items: center;\n"
+                   "}" << endl;
+            css <<".canvas{\n"
+                  "width:"+to_string(item->image_width)+"px;\n"
+                                                        "height:"+to_string(item->image_height)+"px;\n"
+                                                                                                "\n"
+                                                                                                "}\n"
+                                                                                                ".pixel{\n"
+                                                                                                "float: left;\n"
+                                                                                                "width:"+to_string(item->pixel_widt)+"px;\n"
+                                                                                                                                     "height:"+to_string(item->pixel_height)+"px;\n"
+                                                                                                                                                                             "}" << endl;
+            contador++;
+            continue;
+        }
+
+        NodoMatris* aux = item->root;
+        int c = 1;
+        while (aux!= nullptr){
+            NodoMatris* aux1 = aux;
+            while (aux1!= nullptr){
+                if(aux1->y==-1 or aux1->x==-1){
+                    aux1 = aux1->siguiente;
+                    continue;
+                }
+
+
+                if(regex_match(aux1->dato,verificar)) {
+
+                    string convertidor;
+                    vector<string> v{explode(aux1->dato, ',')};
+                    int r = stoi(v[0])*0.30;
+                    int g = stoi(v[1])*0.59;
+                    int b = stoi(v[2])*0.11;
+                    string escala = to_string(r+g+b);
+                    convertidor = escala +","+ escala + "," + escala;
+                    css << ".pixel:nth-child(" + to_string(c) + "){\n"
+                                                                "background: rgb(" + convertidor + ");\n"
+                                                                                                   "}" << endl;
+
+                    copiaMatris->insertar_elementos(aux1->x ,aux1->y,convertidor,c);
+                }
+                html << "<div class=\"pixel\">\n"
+                        "</div>" << endl;
+                aux1 = aux1->siguiente;
+                c++;
+            }
+            aux = aux->abajo;
+        }
+        copiaMatris->SetName(item->getName()+"_Gray");
+        copiaMatris->graficar();
+
+        capas[seleccion][0]->CAP.push_back(copiaMatris);
+
+    }
+    html << "</div>\n"
+            "</body>\n"
+            "</html>" << endl;
+    css.close();
+    html.close();
+    string abrir = ExePath() + gg;
+    abrir = ReplaceAll(abrir,"cmake-build-debug","");
+    cout << abrir << endl;
+    ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
+}
+
+
+/////////////////////////////////XMIRROR
+
+void PrepararFiltros::generarImagenXMIRROR() {
+    regex verificar("\\d{1}*,\\d{1}*,\\d{1}*");
+    string gg;
+    cout << to_string(seleccion) << endl;
+    cout << temp[seleccion] << endl;
+    ofstream css, html;
+    int contador = 0;
+    vector<vector<Matris *>> flotante;
+    flotante = capas;
+    for (auto &item : flotante[seleccion]) {
+        cout << item->getName() << endl;
+        Matris* copiaMatris = new Matris();
+        cout << item->getName() << endl;
+        if (contador == 0) {
+            string nombre_archivo = temp[seleccion] + ".css";
+            string nombre_archivoH = temp[seleccion] + ".html";
+            gg = nombre_archivoH;
+            html.open(temp[seleccion] + ".html");
+            css.open(nombre_archivo);
+
+            html << "<!DOCTYPE html>" << endl;
+            html << "<head>" << endl;
+            html << R"(<link rel="stylesheet" href=")"+nombre_archivo+"\">"<< endl;
+            html << "</head>\n"
+                    "<body> <div class=\"canvas\">" << endl;
+            css << "body{\n"
+                   "background: #333333;\n"
+                   "height: 100vh;\n"
+                   "display:flex;\n"
+                   "justify-content: center;\n"
+                   "align-items: center;\n"
+                   "}" << endl;
+            css <<".canvas{\n"
+
+                  "transform: scale(-1, 1); width:"+to_string(item->image_width)+"px;\n"
+                                                        "height:"+to_string(item->image_height)+"px;\n"
+                                                                                                "\n"
+                                                                                                "}\n"
+                                                                                                ".pixel{\n"
+                                                                                                "float: left;\n"
+                                                                                                "width:"+to_string(item->pixel_widt)+"px;\n"
+                                                                                                                                     "height:"+to_string(item->pixel_height)+"px;\n""}" << endl;
+            contador++;
+            continue;
+        }
+
+        NodoMatris* aux = item->root;
+        int c = 1;
+        while (aux!= nullptr){
+            NodoMatris* aux1 = aux;
+            while (aux1!= nullptr){
+                if(aux1->y==-1 or aux1->x==-1){
+                    aux1 = aux1->siguiente;
+                    continue;
+                }
+                if(regex_match(aux1->dato,verificar)) {
+                    css << ".pixel:nth-child(" + to_string(c) + "){\n"
+                                                                "background: rgb(" + aux1->dato + ");\n"
+                                                                                                   "}" << endl;
+                    copiaMatris->insertar_elementos(item->max_columna- (aux1->x) ,aux1->y,aux1->dato,c);
+                }
+                html << "<div class=\"pixel\">\n"
+                        "</div>" << endl;
+                aux1 = aux1->siguiente;
+                c++;
+            }
+            aux = aux->abajo;
+        }
+        copiaMatris->SetName(item->getName()+"_XMIRROR");
+        copiaMatris->graficar();
+        capas[seleccion][0]->CAP.push_back(copiaMatris);
+    }
+    html << "</div>\n"
+            "</body>\n"
+            "</html>" << endl;
+    css.close();
+    html.close();
+    string abrir = ExePath() + gg;
+    abrir = ReplaceAll(abrir,"cmake-build-debug","");
+    cout << abrir << endl;
+    ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
+}
+
+
+/////////////////////////////////XMIRROR
+
+void PrepararFiltros::generarImagenYMIRROR() {
+    regex verificar("\\d{1}*,\\d{1}*,\\d{1}*");
+    string gg;
+    cout << to_string(seleccion) << endl;
+    cout << temp[seleccion] << endl;
+    ofstream css, html;
+    int contador = 0;
+    vector<vector<Matris *>> flotante;
+    flotante = capas;
+    for (auto &item : flotante[seleccion]) {
+        cout << item->getName() << endl;
+        Matris* copiaMatris = new Matris();
+        cout << item->getName() << endl;
+        if (contador == 0) {
+            string nombre_archivo = temp[seleccion] + ".css";
+            string nombre_archivoH = temp[seleccion] + ".html";
+            gg = nombre_archivoH;
+            html.open(temp[seleccion] + ".html");
+            css.open(nombre_archivo);
+
+            html << "<!DOCTYPE html>" << endl;
+            html << "<head>" << endl;
+            html << R"(<link rel="stylesheet" href=")"+nombre_archivo+"\">"<< endl;
+            html << "</head>\n"
+                    "<body> <div class=\"canvas\">" << endl;
+            css << "body{\n"
+                   "background: #333333;\n"
+                   "height: 100vh;\n"
+                   "display:flex;\n"
+                   "justify-content: center;\n"
+                   "align-items: center;\n"
+                   "}" << endl;
+            css <<".canvas{\n"
+
+                  "transform: scale(1, -1); width:"+to_string(item->image_width)+"px;\n"
+                                                                                 "height:"+to_string(item->image_height)+"px;\n"
+                                                                                                                         "\n"
+                                                                                                                         "}\n"
+                                                                                                                         ".pixel{\n"
+                                                                                                                         "float: left;\n"
+                                                                                                                         "width:"+to_string(item->pixel_widt)+"px;\n"
+                                                                                                                                                              "height:"+to_string(item->pixel_height)+"px;\n""}" << endl;
+            contador++;
+            continue;
+        }
+
+        NodoMatris* aux = item->root;
+        int c = 1;
+        while (aux!= nullptr){
+            NodoMatris* aux1 = aux;
+            while (aux1!= nullptr){
+                if(aux1->y==-1 or aux1->x==-1){
+                    aux1 = aux1->siguiente;
+                    continue;
+                }
+                if(regex_match(aux1->dato,verificar)) {
+                    css << ".pixel:nth-child(" + to_string(c) + "){\n"
+                                                                "background: rgb(" + aux1->dato + ");\n"
+                                                                                                  "}" << endl;
+                    copiaMatris->insertar_elementos(aux1->x , item->max_fila- aux1->y,aux1->dato,c);
+                }
+                html << "<div class=\"pixel\">\n"
+                        "</div>" << endl;
+                aux1 = aux1->siguiente;
+                c++;
+            }
+            aux = aux->abajo;
+        }
+        copiaMatris->SetName(item->getName()+"_YMIRROR");
+        copiaMatris->graficar();
+        capas[seleccion][0]->CAP.push_back(copiaMatris);
+    }
+    html << "</div>\n"
+            "</body>\n"
+            "</html>" << endl;
+    css.close();
+    html.close();
+    string abrir = ExePath() + gg;
+    abrir = ReplaceAll(abrir,"cmake-build-debug","");
+    cout << abrir << endl;
+    ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
+}
 
 
 void PrepararFiltros::Reportar_Normal() {
-    for (auto &item : capas[seleccion]) {
-        if(item->getName().find("_Normal") != std::string::npos ){
-            cout << item->getName() << endl;
+    int numero_capa=0;
+
+    for (auto &item1: capas[seleccion][0]->CAP) {
+        if(item1->getName().find("_Normal") != std::string::npos){
+            cout << item1->getName() << endl;
         }
     }
-    cout << "Escriba nombre de la capa" << endl;
-    cin >> nombreCapa;
-    for (auto &item : capas[seleccion]) {
-        if(item->getName() == nombreCapa ){
-            item->abrirGrafica();
+
+    cout << "Escriba el nombre" << endl;
+    cin >> nombreFiltro;
+
+    for (auto &item2: capas[seleccion][0]->CAP) {
+        if(item2->getName() == nombreFiltro){
+            item2->abrirGrafica();
         }
     }
+
+}
+
+void PrepararFiltros::Reportar_Filter() {
+
+    for (auto &item1: capas[seleccion][0]->CAP) {
+        if(item1->getName().find("_Normal") != std::string::npos ){
+
+        }else{
+            cout << item1->getName() << endl;
+        }
+    }
+
+    cout << "Escriba el nombre" << endl;
+    cin >> nombreFiltro;
+
+    for (auto &item2: capas[seleccion][0]->CAP) {
+        if(item2->getName() == nombreFiltro){
+            item2->abrirGrafica();
+        }
+    }
+
 }
 
 

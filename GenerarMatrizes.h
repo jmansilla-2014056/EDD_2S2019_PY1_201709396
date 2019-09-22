@@ -19,6 +19,7 @@ public:
     vector<string> getListanombreimagen();
     vector<vector<Matris*>> getListaimagenes();
     std::string ReplaceAll(std::string str, const std::string& from, const std::string& to);
+    vector<string> explode(const string& s, const char& c);
 };
 
 #endif //EDD_2S2019_PROYECTO1_201709396_GENERARMATRIZES_H
