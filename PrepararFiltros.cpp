@@ -7,6 +7,7 @@
 #include "NodoMatris.h"
 #include "Matris.h"
 #include "Report.h"
+#include "ListaDobleE.h"
 #include <string>
 #include <vector>
 #include <regex>
@@ -123,10 +124,115 @@ void PrepararFiltros::generarImagenNormal() {
     css.close();
     html.close();
     string abrir = ExePath() + gg;
-    abrir = ReplaceAll(abrir,"cmake-build-debug","");
+    abrir = ReplaceAll(abrir,"cmake-build-debug","Root\\");
     cout << abrir << endl;
     ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
 }
+
+
+void PrepararFiltros::generarImagenNegativeCapaEspecifica(string nombre) {
+    regex verificar("\\d{1}*,\\d{1}*,\\d{1}*");
+    string gg;
+    cout << to_string(seleccion) << endl;
+    cout << temp[seleccion] << endl;
+    ofstream css, html;
+    int contador = 0;
+    vector<vector<Matris *>> flotante;
+    flotante = capas;
+    for (auto &item : flotante[seleccion]) {
+        cout << item->getName() << endl;
+        Matris* copiaMatris = new Matris();
+        cout << item->getName() << endl;
+        if (contador == 0) {
+            string nombre_archivo = temp[seleccion] + ".css";
+            string nombre_archivoH = temp[seleccion] + ".html";
+            gg = nombre_archivoH;
+            html.open(temp[seleccion] + ".html");
+            css.open(nombre_archivo);
+
+            html << "<!DOCTYPE html>" << endl;
+            html << "<head>" << endl;
+            html << R"(<link rel="stylesheet" href=")"+nombre_archivo+"\">"<< endl;
+            html << "</head>\n"
+                    "<body> <div class=\"canvas\">" << endl;
+            css << "body{\n"
+                   "background: #333333;\n"
+                   "height: 100vh;\n"
+                   "display:flex;\n"
+                   "justify-content: center;\n"
+                   "align-items: center;\n"
+                   "}" << endl;
+            css <<".canvas{\n"
+                  "width:"+to_string(item->image_width)+"px;\n"
+                                                        "height:"+to_string(item->image_height)+"px;\n"
+                                                                                                "\n"
+                                                                                                "}\n"
+                                                                                                ".pixel{\n"
+                                                                                                "float: left;\n"
+                                                                                                "width:"+to_string(item->pixel_widt)+"px;\n"
+                                                                                                                                     "height:"+to_string(item->pixel_height)+"px;\n"
+                                                                                                                                                                             "}" << endl;
+            contador++;
+            continue;
+        }
+
+        NodoMatris* aux = item->root;
+        int c = 1;
+        while (aux!= nullptr){
+            NodoMatris* aux1 = aux;
+            while (aux1!= nullptr){
+                if(aux1->y==-1 or aux1->x==-1){
+                    aux1 = aux1->siguiente;
+                    continue;
+                }
+
+
+                if(regex_match(aux1->dato,verificar)) {
+
+                    string convertidor;
+                    vector<string> v{explode(aux1->dato, ',')};
+                    for(auto &&rgb : v){
+                        int color = 255-stoi(rgb);
+                        if (item->getName()==nombre){
+                            convertidor = convertidor + to_string(color) + ",";
+                        } else{
+                            convertidor = convertidor + rgb + ",";
+                        }
+
+                    }
+                    convertidor = convertidor.substr(0, convertidor.size()-1);
+                    css << ".pixel:nth-child(" + to_string(c) + "){\n"
+                                                                "background: rgb(" + convertidor + ");\n"
+                                                                                                   "}" << endl;
+
+                    copiaMatris->insertar_elementos(aux1->x ,aux1->y,convertidor,c);
+                }
+                html << "<div class=\"pixel\">\n"
+                        "</div>" << endl;
+                aux1 = aux1->siguiente;
+                c++;
+            }
+            aux = aux->abajo;
+        }
+        copiaMatris->SetName(item->getName()+"_Negativo");
+        copiaMatris->graficar();
+        capas[seleccion][0]->CAP.push_back(copiaMatris);
+    }
+    html << "</div>\n"
+            "</body>\n"
+            "</html>" << endl;
+    css.close();
+    html.close();
+    string abrir = ExePath() + gg;
+    abrir = ReplaceAll(abrir,"cmake-build-debug","Root\\");
+    cout << abrir << endl;
+    ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
+}
+
+
+
+
+
 
 /////////////////////////////////NEGATIVE
 
@@ -219,7 +325,7 @@ void PrepararFiltros::generarImagenNegative() {
     css.close();
     html.close();
     string abrir = ExePath() + gg;
-    abrir = ReplaceAll(abrir,"cmake-build-debug","");
+    abrir = ReplaceAll(abrir,"cmake-build-debug","Root\\");
     cout << abrir << endl;
     ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
 }
@@ -318,7 +424,7 @@ void PrepararFiltros::generarImagenGray() {
     css.close();
     html.close();
     string abrir = ExePath() + gg;
-    abrir = ReplaceAll(abrir,"cmake-build-debug","");
+    abrir = ReplaceAll(abrir,"cmake-build-debug","Root\\");
     cout << abrir << endl;
     ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
 }
@@ -403,12 +509,11 @@ void PrepararFiltros::generarImagenXMIRROR() {
             "</html>" << endl;
     css.close();
     html.close();
-    string abrir = ExePath() + gg;
-    abrir = ReplaceAll(abrir,"cmake-build-debug","");
+    string abrir = ExePath()  +"\\" + gg;
+    abrir = ReplaceAll(abrir,"cmake-build-debug","Root\\");
     cout << abrir << endl;
     ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
 }
-
 
 /////////////////////////////////YMIRROR
 
@@ -489,10 +594,76 @@ void PrepararFiltros::generarImagenYMIRROR() {
             "</html>" << endl;
     css.close();
     html.close();
-    string abrir = ExePath() + gg;
-    abrir = ReplaceAll(abrir,"cmake-build-debug","");
+    string abrir = ExePath() +gg;
+    cout << abrir << endl;
+    abrir = ReplaceAll(abrir,"cmake-build-debug","Root\\");
     cout << abrir << endl;
     ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
+}
+
+void PrepararFiltros::generarImagenMosaico(int x, int y){
+
+    regex verificar("\\d{1}*,\\d{1}*,\\d{1}*");
+    string gg;
+    cout << to_string(seleccion) << endl;
+    cout << temp[seleccion] << endl;
+    ofstream html;
+    int contador = 0;
+    vector<vector<Matris *>> flotante;
+    flotante = capas;
+    for (auto &item : flotante[seleccion]) {
+        cout << item->getName() << endl;
+        Matris* copiaMatris = new Matris();
+        cout << item->getName() << endl;
+        if (contador == 0) {
+            string nombre_archivo = temp[seleccion] + ".css";
+            string nombre_archivoH = temp[seleccion] + ".html";
+            gg = temp[seleccion] + "_Mosaico.html";
+            html.open(temp[seleccion] + "_Mosaico.html");
+
+            html << "<!DOCTYPE html>" << endl;
+            html << "<head>" << endl;
+            html << R"(<link rel="stylesheet" href=")"+nombre_archivo+"\">"<< endl;
+            html << "</head>\n"
+                    "<body>" << endl;
+
+            contador++;
+            html << "<table style=\"width:100%\">" << endl;
+            continue;
+        }
+
+    }
+
+
+    for(int i=0; i<=x-1; i++) {
+        cout << "Mosaico" << endl;
+        html << "<tr>" << endl;
+        for (int j = 0; j <= y-1; j++) {
+
+            html << "<td>" << endl;
+            html << "<div>" << endl;
+            html <<R"(<iframe width=")"+ to_string((capas[seleccion][0]->image_width+20))  +"px"+ " height=" + to_string((capas[seleccion][0]->image_height+20)) + "px\" src=" + "\""+  temp[seleccion]  +R"(.html" scrolling="no" frameborder="no" ></iframe>)" << endl;
+            html << "</div>" << endl;
+            html << "</td>" << endl;
+
+        }
+        html << "</tr>" << endl;
+    }
+
+
+
+    html << "</table>" << endl;
+
+     html <<       "</body>\n"
+            "</html>" << endl;
+
+    html.close();
+    string abrir = ExePath() +gg;
+    cout << abrir << endl;
+    abrir = ReplaceAll(abrir,"cmake-build-debug","Root\\");
+    cout << abrir << endl;
+    ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
+
 }
 
 void PrepararFiltros::generarImagenDOBLE() {
@@ -573,11 +744,10 @@ void PrepararFiltros::generarImagenDOBLE() {
     css.close();
     html.close();
     string abrir = ExePath() + gg;
-    abrir = ReplaceAll(abrir,"cmake-build-debug","");
+    abrir = ReplaceAll(abrir,"cmake-build-debug","Root\\");
     cout << abrir << endl;
     ShellExecute(NULL, NULL,abrir.c_str(),NULL, NULL, SW_SHOW);
 }
-
 
 void PrepararFiltros::Reportar_Normal() {
     int numero_capa=0;
@@ -620,7 +790,6 @@ void PrepararFiltros::Reportar_Filter() {
 
 }
 
-
 void PrepararFiltros::Reportar_Lineal(int tipo) {
 
     for (auto &item1: capas[seleccion][0]->CAP) {
@@ -644,30 +813,10 @@ void PrepararFiltros::Reportar_Lineal(int tipo) {
 }
 
 void PrepararFiltros::ReportarCircular() {
-    ofstream grafica;
-
-    grafica.open(temp[seleccion]+"Circular" + ".dot", ios::out);
-
-    if (!grafica.fail()) {
-        grafica << "digraph {" << endl << "node [shape = rectangle, height=0.5, width=1.2];" << endl << "graph [nodesep = 1];" << endl << "rankdir=TB;" << endl;
-
-        int dl=0;
-        for (auto &item2: capas[seleccion][0]->CAP) {
-                if(capas[seleccion][0]->CAP[dl+1]!=nullptr){
-                    grafica << item2->getName()+to_string(dl) +"->" + capas[seleccion][0]->CAP[dl+1]->getName() + to_string(dl) << endl;
-                    grafica << capas[seleccion][0]->CAP[dl+1]->getName() + to_string(dl)  + "->" + item2->getName()+to_string(dl) << endl;
-                    dl++;
-                }
+        ListaDobleE* lde = new ListaDobleE();
+        for (auto &item: capas[seleccion][0]->CAP) {
+            lde->insertarNodo(item->getName());
+            cout << item->getName() << endl;
         }
-
-
-        grafica << "}";
-        grafica.close();
-        string creacion = "dot -Tjpg " + temp[seleccion]+"Circular" + ""+ "" + ".dot -o " + temp[seleccion]+"Circular" +""+ ".jpg";
-        system(creacion.c_str());
-        creacion = temp[seleccion]+"Circular"+ "" + ".jpg";
-        system(creacion.c_str());
-
-
-    }
+        lde->printList(temp[seleccion]+"Reporte_filtros");
 }

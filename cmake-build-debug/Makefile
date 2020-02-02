@@ -204,32 +204,32 @@ GenerarMatrizes.cpp.s:
 	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/GenerarMatrizes.cpp.s
 .PHONY : GenerarMatrizes.cpp.s
 
-ListaCircular.o: ListaCircular.cpp.o
+ListaDobleE.o: ListaDobleE.cpp.o
 
-.PHONY : ListaCircular.o
+.PHONY : ListaDobleE.o
 
 # target to build an object file
-ListaCircular.cpp.o:
-	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/ListaCircular.cpp.o
-.PHONY : ListaCircular.cpp.o
+ListaDobleE.cpp.o:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/ListaDobleE.cpp.o
+.PHONY : ListaDobleE.cpp.o
 
-ListaCircular.i: ListaCircular.cpp.i
+ListaDobleE.i: ListaDobleE.cpp.i
 
-.PHONY : ListaCircular.i
+.PHONY : ListaDobleE.i
 
 # target to preprocess a source file
-ListaCircular.cpp.i:
-	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/ListaCircular.cpp.i
-.PHONY : ListaCircular.cpp.i
+ListaDobleE.cpp.i:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/ListaDobleE.cpp.i
+.PHONY : ListaDobleE.cpp.i
 
-ListaCircular.s: ListaCircular.cpp.s
+ListaDobleE.s: ListaDobleE.cpp.s
 
-.PHONY : ListaCircular.s
+.PHONY : ListaDobleE.s
 
 # target to generate assembly for a file
-ListaCircular.cpp.s:
-	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/ListaCircular.cpp.s
-.PHONY : ListaCircular.cpp.s
+ListaDobleE.cpp.s:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/ListaDobleE.cpp.s
+.PHONY : ListaDobleE.cpp.s
 
 Matris.o: Matris.cpp.o
 
@@ -285,32 +285,32 @@ Menu.cpp.s:
 	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Menu.cpp.s
 .PHONY : Menu.cpp.s
 
-NodoAbb.o: NodoAbb.cpp.o
+Nodo.o: Nodo.cpp.o
 
-.PHONY : NodoAbb.o
+.PHONY : Nodo.o
 
 # target to build an object file
-NodoAbb.cpp.o:
-	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/NodoAbb.cpp.o
-.PHONY : NodoAbb.cpp.o
+Nodo.cpp.o:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Nodo.cpp.o
+.PHONY : Nodo.cpp.o
 
-NodoAbb.i: NodoAbb.cpp.i
+Nodo.i: Nodo.cpp.i
 
-.PHONY : NodoAbb.i
+.PHONY : Nodo.i
 
 # target to preprocess a source file
-NodoAbb.cpp.i:
-	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/NodoAbb.cpp.i
-.PHONY : NodoAbb.cpp.i
+Nodo.cpp.i:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Nodo.cpp.i
+.PHONY : Nodo.cpp.i
 
-NodoAbb.s: NodoAbb.cpp.s
+Nodo.s: Nodo.cpp.s
 
-.PHONY : NodoAbb.s
+.PHONY : Nodo.s
 
 # target to generate assembly for a file
-NodoAbb.cpp.s:
-	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/NodoAbb.cpp.s
-.PHONY : NodoAbb.cpp.s
+Nodo.cpp.s:
+	$(MAKE) -f CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/build.make CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Nodo.cpp.s
+.PHONY : Nodo.cpp.s
 
 NodoMatris.o: NodoMatris.cpp.o
 
@@ -465,18 +465,18 @@ help:
 	@echo "... GenerarMatrizes.o"
 	@echo "... GenerarMatrizes.i"
 	@echo "... GenerarMatrizes.s"
-	@echo "... ListaCircular.o"
-	@echo "... ListaCircular.i"
-	@echo "... ListaCircular.s"
+	@echo "... ListaDobleE.o"
+	@echo "... ListaDobleE.i"
+	@echo "... ListaDobleE.s"
 	@echo "... Matris.o"
 	@echo "... Matris.i"
 	@echo "... Matris.s"
 	@echo "... Menu.o"
 	@echo "... Menu.i"
 	@echo "... Menu.s"
-	@echo "... NodoAbb.o"
-	@echo "... NodoAbb.i"
-	@echo "... NodoAbb.s"
+	@echo "... Nodo.o"
+	@echo "... Nodo.i"
+	@echo "... Nodo.s"
 	@echo "... NodoMatris.o"
 	@echo "... NodoMatris.i"
 	@echo "... NodoMatris.s"

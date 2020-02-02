@@ -19,22 +19,19 @@ using namespace std;
     public:
         void pedirImgen();
         void generarImagenNormal();
-
         void Reportar_Normal();
         void Reportar_Filter();
         void generarImagenNegative();
-
         void generarImagenGray();
-
         void generarImagenXMIRROR();
-
         void generarImagenYMIRROR();
-
         void generarImagenDOBLE();
-
         void Reportar_Lineal(int tipo);
-
         void ReportarCircular();
+
+        void generarImagenMosaico(int x, int y);
+
+        void generarImagenNegativeCapaEspecifica(string nombre);
     };
 
 

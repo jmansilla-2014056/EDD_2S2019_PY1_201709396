@@ -55,7 +55,6 @@ NodoMatris* Matris::insertar_ordenado_columna(NodoMatris *nuevo, NodoMatris *cab
     bool bandera = false;
     while(true){
         if(temp->x == nuevo->x){
-            //Si la posicion es la misma, sobre escribo
             temp->y = nuevo->y;
             temp->dato = nuevo->dato;
             return temp; //Retornamos el puntero
@@ -69,8 +68,6 @@ NodoMatris* Matris::insertar_ordenado_columna(NodoMatris *nuevo, NodoMatris *cab
             temp = temp->siguiente;
         }
         else{
-            //Tengo que insertar nuevo de temp
-            //bandera = false
             break;
         }
     }
@@ -92,13 +89,11 @@ NodoMatris *Matris::insertar_ordenado_fila(NodoMatris *nuevo, NodoMatris *cabesa
     bool bandera = false;
     while(true){
         if(temp->y == nuevo->y){
-            //Si la posicion es la misma, sobre escribo
             temp->x = nuevo->x;
             temp->dato = nuevo->dato;
-            return temp; //Retornamos el puntero
+            return temp;
         }
         else if(temp->y > nuevo->y){
-            // Tengo que insertarlo antes de temp
             bandera = true;
             break;
         }
@@ -106,8 +101,6 @@ NodoMatris *Matris::insertar_ordenado_fila(NodoMatris *nuevo, NodoMatris *cabesa
             temp = temp->abajo;
         }
         else{
-            //Tengo que insertar nuevo de temp
-
             break;
         }
     }
@@ -138,49 +131,30 @@ NodoMatris* Matris::crear_fila(int y) {
 
 void Matris::insertar_elementos(int x, int y, string dato, int correlativo) {
     auto* nuevo = new NodoMatris(x,y,dato, correlativo);
-    cout << correlativo << endl;
     NodoMatris* NodoColumna = buscar_columna(x);
     NodoMatris* NodoFila = buscar_fila(y);
-    //1. Columna no existe y fila no existe
     if(NodoColumna == nullptr and NodoFila == nullptr){
-        cout << "caso 1" << endl;
-        //Crear Columna
         NodoColumna = crear_columna(x);
-        //Crear Fila
         NodoFila = crear_fila(y);
-        //Insertar de forma ordenada en columna
         nuevo = insertar_ordenado_columna(nuevo, NodoFila);
-        //Insertar de forma ordenada en fila
         nuevo = insertar_ordenado_fila(nuevo, NodoColumna);
         return;
     }
-        //2.columna no existe y fila existe
+
     else if(NodoColumna == nullptr and NodoFila != nullptr){
-        cout << "caso 2" << endl;
-        //crear Columna
         NodoColumna = crear_columna(x);
-        //insertar de forma ordenada en columna
         nuevo = insertar_ordenado_columna(nuevo,NodoFila);
-        //insertar de forma ordenea en fila
         nuevo = insertar_ordenado_fila(nuevo,NodoColumna);
     }
-        //3.fila no existe y columna existe
     else if(NodoFila == nullptr and NodoColumna!= nullptr){
-        cout << "caso 3" << endl;
-        //Crear fila
         NodoFila = crear_fila(y);
-        //Insertar de forma ordena en columna
         nuevo = insertar_ordenado_columna(nuevo,NodoFila);
-        //Insertar de forma ordenada en fila
         nuevo  =  insertar_ordenado_fila(nuevo, NodoColumna);
 
     }
-        //4.Existe Fila y columna
+
     else if(NodoFila != nullptr and NodoColumna!= nullptr){
-        cout << "caso 4" << endl;
-        //Insertar de forma ordenada columna
         nuevo = insertar_ordenado_columna(nuevo, NodoFila);
-        //Insertar de forma ordena fila
         nuevo  =  insertar_ordenado_fila(nuevo, NodoColumna);
     }
 
@@ -271,6 +245,13 @@ void Matris::abrirGrafica() {
     string title = this->getName()  + ".jpg";
     ShellExecute(nullptr, "open", title.c_str(), nullptr, nullptr, SW_SHOWNORMAL);
 }
+
+
+void Matris::abrir(string nombre) {
+    string title = nombre  + ".jpg";
+    ShellExecute(nullptr, "open", nombre.c_str(), nullptr, nullptr, SW_SHOWNORMAL);
+}
+
 
 void Matris::graficarC() {
     ofstream grafica;
@@ -372,7 +353,7 @@ void Matris::graficar() {
             if (tempA == this->root){
                 if (temp == this->root) {
                     grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->siguiente->x << "-" << temp->siguiente->y << "\"[dir=both];" << endl;
-                    grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->abajo->x << "-" << temp->abajo->y << "\"[dir=both];" << endl;
+                    grafica << "\"" <<  temp->x << "-" << temp->y << "\"->\"" << temp->abajo->x << "-" << temp->abajo->y << "\"[dir=both];" << endl;
                     temp = temp->abajo;
                 }
                 else {
@@ -383,24 +364,28 @@ void Matris::graficar() {
                     }
                     if (temp->abajo != nullptr)
                     {
+                        cout << "xxxxx" << endl;
                         grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->abajo->x << "-" << temp->abajo->y << "\"[dir=both];" << endl;
                         temp = temp->abajo;
                     }
                     else
                     {
+                        cout << "yyyy" << endl;
                         tempA = tempA->siguiente;
                         temp = tempA;
                     }
                 }
             }
             else
+                ///
             {
                 if (tempA == temp) {
                     if (temp->siguiente != nullptr){
                         grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->siguiente->x << "-" << temp->siguiente->y << "\"[dir=both];" << endl;
                     }
                     if (temp->abajo != nullptr){
-                        grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->abajo->x << "-" << temp->abajo->y << "\"[dir=both];" << endl;
+                        cout << "ooooo" << endl;
+                              grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->abajo->x << "-" << temp->abajo->y << "\"[dir=both];" << endl;
                         temp = temp->abajo;
                     }
                     else
@@ -415,6 +400,7 @@ void Matris::graficar() {
                         grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->siguiente->x << "-" << temp->siguiente->y << "\"[dir=both];" << endl;
                     }
                     if (temp->abajo != nullptr){
+                        cout << "jjjj" << endl;
                         grafica << "\"" << temp->x << "-" << temp->y << "\"->\"" << temp->abajo->x << "-" << temp->abajo->y << "\"[dir=both];" << endl;
                         temp = temp->abajo;
                     }

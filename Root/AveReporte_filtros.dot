@@ -1,0 +1,4 @@
+digraph {
+node [shape = rectangle, height=0.5, width=1.2];
+graph [nodesep = 1];
+rankdir=TB;

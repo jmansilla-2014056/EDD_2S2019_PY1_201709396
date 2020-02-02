@@ -55,6 +55,7 @@ public:
     void graficar();
     void abrirGrafica();
     void graficarC();
+    void abrir(string name);
 private:
     string name;
 

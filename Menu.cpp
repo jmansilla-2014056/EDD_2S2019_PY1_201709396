@@ -13,6 +13,8 @@ bool bandera=false;
 char tecla;
 int filtro=0;
 int reportes=0;
+int x=0;
+int y=0;
 
 void Menu::menu() {
     do{
@@ -52,6 +54,7 @@ void Menu::menu() {
                 cout << "3. Aplicar filtro XMIRROR  \n";
                 cout << "4. Aplicar filtro YMIRROR  \n";
                 cout << "5. Aplicar filtro YX MIRROR  \n";
+                cout << "6. Aplicar filtro Mosaico  \n";
                 cin >> filtro;
                 if(filtro==0){
                     pf->generarImagenNormal();
@@ -65,11 +68,25 @@ void Menu::menu() {
                     pf->generarImagenYMIRROR();
                 }else if(filtro==5){
                     pf->generarImagenDOBLE();
+                }else if(filtro==6){
+                    cout << "ingrese x" << endl;
+                    cin >> x;
+                    cout << "ingrese y" << endl;
+                    cin >> y;
+                    pf->generarImagenMosaico(x,y);
                 }
                 break;
             case '4':
                 system("clear");
-                cout << "Aplicar filtro a una capa\n";
+                cout << "0. Aplicar filtro negativo  \n";
+                cout << "1. Aplicar filtro escala de grises  \n";
+                cin >> filtro;
+                if(filtro==0){
+                    cout << "Escriba nombre de capa  \n";
+                    cin >> input2;
+                    pf->generarImagenNegativeCapaEspecifica(input2);
+                }
+                break;
             case '5':
                 cout << "0. Matris dispera (Capas normales)  \n";
                 cout << "1. Matris dispera (Capas con filtro)  \n";

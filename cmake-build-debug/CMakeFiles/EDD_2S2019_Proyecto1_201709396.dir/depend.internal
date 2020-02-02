@@ -14,9 +14,12 @@ CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/GenerarMatrizes.cpp.o
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/GenerarMatrizes.h
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Matris.h
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoMatris.h
-CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/ListaCircular.cpp.o
- /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/ListaCircular.cpp
- /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/ListaCircular.h
+CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/ListaDobleE.cpp.o
+ /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/ListaDobleE.cpp
+ /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/ListaDobleE.h
+ /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Matris.h
+ /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Nodo.h
+ /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoMatris.h
 CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Matris.cpp.o
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/GenerarMatrizes.h
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Matris.cpp
@@ -32,9 +35,9 @@ CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Menu.cpp.o
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoMatris.h
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/PrepararArchivos.h
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/PrepararFiltros.h
-CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/NodoAbb.cpp.o
- /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoAbb.cpp
- /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoAbb.h
+CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/Nodo.cpp.o
+ /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Nodo.cpp
+ /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Nodo.h
 CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/NodoMatris.cpp.o
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoMatris.cpp
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoMatris.h
@@ -46,7 +49,9 @@ CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/PrepararArchivos.cpp.o
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/PrepararArchivos.h
 CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir/PrepararFiltros.cpp.o
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/GenerarMatrizes.h
+ /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/ListaDobleE.h
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Matris.h
+ /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Nodo.h
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoMatris.h
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/PrepararFiltros.cpp
  /cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/PrepararFiltros.h
