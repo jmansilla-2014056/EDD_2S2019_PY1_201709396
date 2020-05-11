@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="EDD_2S2019_Proyecto1_201709396"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EDD_2S2019_Proyecto1_201709396">
+				<Option output="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/EDD_2S2019_Proyecto1_201709396.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 EDD_2S2019_Proyecto1_201709396"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EDD_2S2019_Proyecto1_201709396/fast">
+				<Option output="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/EDD_2S2019_Proyecto1_201709396.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 EDD_2S2019_Proyecto1_201709396/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Cubo.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Cubo.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/GenerarImagen.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/GenerarImagen.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/GenerarMatrizes.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/GenerarMatrizes.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/ListaDobleE.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/ListaDobleE.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Matris.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Matris.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Menu.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Menu.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Nodo.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Nodo.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoMatris.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/NodoMatris.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/PrepararArchivos.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/PrepararArchivos.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/PrepararFiltros.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/PrepararFiltros.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Report.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/Report.h">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/main.cpp">
+			<Option target="EDD_2S2019_Proyecto1_201709396"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

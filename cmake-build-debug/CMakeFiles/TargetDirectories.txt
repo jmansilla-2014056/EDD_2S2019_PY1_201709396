@@ -1,3 +1,0 @@
-/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/CMakeFiles/EDD_2S2019_Proyecto1_201709396.dir
-/cygdrive/c/Users/User/CLionProjects/EDD_2S2019_Proyecto1_201709396/cmake-build-debug/CMakeFiles/edit_cache.dir
