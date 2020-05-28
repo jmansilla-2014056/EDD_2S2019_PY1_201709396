@@ -20,7 +20,7 @@ Crear un Pixel Art en html y css con ayuda de estructuras de datos en c++(Listas
     <br>
     Las imagenes y reportes se almacenan en la carpeta Root. 
     <br>
-    Codigo fuente en la carpeta "EDD_2S2019_Proyecto1" abrir con CLion.
+    Codigo fuente en la carpeta "EDD_2S2019_Proyecto1" abrir dicha carpeta con CLion.
   </div>
 </center>
 </html>
