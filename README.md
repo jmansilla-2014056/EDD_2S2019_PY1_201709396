@@ -1,5 +1,5 @@
 # EDD_P2_Pixel-Art
-Crear un Pixel Art en html y css con ayuda de estructuras de datos en c++(Listas, Matrices, etc) ademas de reportar graficamente dichas estructuras con la herramienta graphviz que debe estar instalada en el equipo  
+Crear un Pixel Art en html y css con ayuda de estructuras de datos en c++(Listas, Matrices, etc) ademas de reportar graficamente dichas estructuras con la herramienta graphviz que debe estar instalada en el equipo (mas detalles en el pdf)
 <html>
 <center>
   <div>
