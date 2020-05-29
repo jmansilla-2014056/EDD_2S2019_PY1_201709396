@@ -18,7 +18,7 @@ Crear un Pixel Art en html y css con ayuda de estructuras de datos en c++(Listas
     <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/EDD_3.png" width="100%" height="100%"/>
     <br>
-    Otro ejemplos ejemplos corrin y deapool con filtro normal 
+    Otro ejemplos: Corrin y Deapool con filtro normal
     <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/EDD_4.png" width="100%" height="100%"/>
     <br>
