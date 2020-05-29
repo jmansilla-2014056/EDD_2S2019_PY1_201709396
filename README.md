@@ -18,7 +18,15 @@ Crear un Pixel Art en html y css con ayuda de estructuras de datos en c++(Listas
     <br>
     <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/EDD_3.png" width="100%" height="100%"/>
     <br>
-    Las imagenes y reportes se almacenan en la carpeta Root. 
+    Otro ejemplos ejemplos corrin y deapool con filtro normal 
+    <br>
+    <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/EDD_4.png" width="100%" height="100%"/>
+    <br>
+    Ejemplo de un filtro aplicado al ejemplo anterior deadpool-negative
+    <br>
+    <img src="https://github.com/jmansilla-2014056/galery/blob/master/Nueva%20carpeta/EDD_5.png" width="100%" height="100%"/>
+    <br>
+    Las imagenes y reportes se almacenan en la carpeta Root (algunos reportes llevan tiempo para construirse). 
     <br>
     Codigo fuente en la carpeta "EDD_2S2019_Proyecto1" abrir dicha carpeta con CLion.
   </div>
